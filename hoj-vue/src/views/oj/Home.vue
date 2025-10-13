@@ -391,13 +391,21 @@ export default {
         recentUpdatedProblemsLoading: false,
         recentContests: false,
       },
+      // carouselImgList: [
+      //   {
+      //     url: "https://z1.ax1x.com/2023/12/09/pi20luQ.jpg",
+      //   },
+      //   {
+      //     url: "https://z1.ax1x.com/2023/12/09/pi201Bj.jpg",
+      //   },
+      // ],
       carouselImgList: [
         {
-          url: "https://z1.ax1x.com/2023/12/09/pi20luQ.jpg",
+          url: require('@/assets/home2.jpeg'),
         },
         {
-          url: "https://z1.ax1x.com/2023/12/09/pi201Bj.jpg",
-        },
+          url: require('@/assets/home2.jpeg'),
+        }
       ],
       srcHight: "440px",
       remoteJudgeList: [
