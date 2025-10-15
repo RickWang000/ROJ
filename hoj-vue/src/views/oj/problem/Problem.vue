@@ -2,8 +2,19 @@
   <div :class="bodyClass">
     <div id="problem-main">
       <!--problem main-->
+      
       <el-row class="problem-box" 
         :id="'problem-box' + '-' + $route.name">
+        <el-col :span="24" v-if="showProblemHorizontalMenu">
+          <ProblemHorizontalMenu
+            :pid.sync="problemData.problem.id" 
+            :cid="contestID"
+            :tid="trainingID"
+            ref="problemHorizontalMenu"
+            :gid="groupID"
+            class="problem-horizontal-menu-full">
+          </ProblemHorizontalMenu>
+        </el-col>
         <el-col
           :sm="24"
           :md="12"
@@ -775,14 +786,7 @@
         </el-col>
       </el-row>
     </div>
-    <ProblemHorizontalMenu
-      v-if="showProblemHorizontalMenu"
-      :pid.sync="problemData.problem.id" 
-      :cid="contestID"
-      :tid="trainingID"
-      ref="problemHorizontalMenu"
-      :gid="groupID">
-    </ProblemHorizontalMenu>
+    
 
     <el-dialog
       :visible.sync="graphVisible"
@@ -943,7 +947,7 @@ export default {
     ) {
       this.bodyClass = "problem-body";
     }
-    if(isFocusModePage && (this.$route.params.contestID || this.$route.params.trainingID)){
+    if((this.$route.params.contestID || this.$route.params.trainingID)){
       this.contestID = this.$route.params.contestID;
       this.trainingID = this.$route.params.trainingID;
       this.showProblemHorizontalMenu = true;

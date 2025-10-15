@@ -221,10 +221,11 @@ export default {
 <style scoped>
 ul {
   margin: 0;
+  padding: 0;
 }
 @media screen and (min-width: 1050px) {
   #problem-footer {
-    margin: 0 -1%;
+    margin: 0 0% !important;
   }
 }
 /deep/.el-card__body {
