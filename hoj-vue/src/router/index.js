@@ -27,6 +27,18 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
   scrollBehavior(to, from, savedPosition) {
+    // 同一训练中题目跳转时不滚动
+    if (to.name === from.name && 
+        (to.name === 'ContestProblemDetails' || 
+         to.name === 'TrainingProblemDetails' ||
+         to.name === 'GroupProblemDetails' ||
+         to.name === 'GroupTrainingProblemDetails' ||
+         to.name === 'ContestFullProblemDetails' ||
+         to.name === 'TrainingFullProblemDetails' ||
+         to.name === 'GroupFullProblemDetails' ||
+         to.name === 'GroupTrainingFullProblemDetails')) {
+      return false; // 🚀 不滚动，保持当前位置
+    }
     if (savedPosition) {
       return savedPosition
     } else {
